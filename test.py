@@ -9,6 +9,10 @@ class ChatbotAutomation:
     def __init__(self, driver_path, chatbot_url):
         options = webdriver.ChromeOptions()
         options.binary_location = driver_path
+        options.add_argument('--remote-debugging-port=9222')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--headless')  # Optional: Run without GUI
         self.driver = webdriver.Chrome(options=options)
         self.chatbot_url = chatbot_url
 
@@ -28,7 +32,6 @@ class ChatbotAutomation:
             time.sleep(2)  # Allow time for the bot to respond
         except Exception as e:
             print(f"Error sending query: {e}")
-
 
     def get_response(self):
         try:
@@ -50,6 +53,19 @@ class ChatbotAutomation:
 
     def close_session(self):
         self.driver.quit()
+
+# Example usage
+if __name__ == "__main__":
+    driver_path = "/path/to/chrome"
+    chatbot_url = "https://example.com/chatbot"
+    bot = ChatbotAutomation(driver_path, chatbot_url)
+
+    bot.start_session()
+    queries = ["Hello!", "What's the weather like today?", "Tell me a joke."]
+    responses = bot.handle_multiple_queries(queries)
+    for query, response in zip(queries, responses):
+        print(f"Query: {query} -> Response: {response}")
+    bot.close_session()
 
 # Example usage
 if __name__ == "__main__":

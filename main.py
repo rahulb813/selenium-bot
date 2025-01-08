@@ -56,7 +56,7 @@ class ChatbotAutomation:
 
 # Example usage
 if __name__ == "__main__":
-    driver_path = "/path/to/chrome"
+    driver_path = "chromedriver.exe"
     chatbot_url = "https://example.com/chatbot"
     bot = ChatbotAutomation(driver_path, chatbot_url)
 

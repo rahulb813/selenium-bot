@@ -1,0 +1,8 @@
+LICENSE
+LICENSE.chromedriver
+README.md
+setup.py
+chatbot_automation.egg-info/PKG-INFO
+chatbot_automation.egg-info/SOURCES.txt
+chatbot_automation.egg-info/dependency_links.txt
+chatbot_automation.egg-info/top_level.txt
